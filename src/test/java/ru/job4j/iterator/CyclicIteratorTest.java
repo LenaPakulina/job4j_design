@@ -10,16 +10,16 @@ import static org.assertj.core.api.Assertions.*;
 class CyclicIteratorTest {
 
     @Test
-    void whenEmptyThenHasNextIsFalse() {
-        CyclicIterator<Integer> iterator = new CyclicIterator<>(List.of());
-        assertThat(iterator.hasNext()).isFalse();
-    }
-
-    @Test
     void whenEmptyAndNextThenThrow() {
         CyclicIterator<Integer> iterator = new CyclicIterator<>(List.of());
         assertThatThrownBy(iterator::next)
                 .isInstanceOf(NoSuchElementException.class);
+    }
+
+    @Test
+    void whenEmptyThenHasNextIsFalse() {
+        CyclicIterator<Integer> iterator = new CyclicIterator<>(List.of());
+        assertThat(iterator.hasNext()).isFalse();
     }
 
     @Test
