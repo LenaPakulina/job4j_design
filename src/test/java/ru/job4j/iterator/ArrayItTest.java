@@ -23,4 +23,23 @@ class ArrayItTest {
         assertThat(iterator.next()).isEqualTo(2);
         assertThat(iterator.next()).isEqualTo(3);
     }
+
+    @Test
+    public void whenMultiCallhasNextThenTrue() {
+        ArrayIt iterator = new ArrayIt(
+                new int[] {1, 2, 3}
+        );
+        assertThat(iterator.hasNext()).isTrue();
+        assertThat(iterator.hasNext()).isTrue();
+    }
+
+    @Test
+    public void whenReadSequence1() {
+        ArrayIt iterator = new ArrayIt(
+                new int[] {1, 2, 3}
+        );
+        assertThat(iterator.next()).isEqualTo(1);
+        assertThat(iterator.next()).isEqualTo(2);
+        assertThat(iterator.next()).isEqualTo(3);
+    }
 }
