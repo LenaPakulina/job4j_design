@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.stream.IntStream;
 
 class SimpleArrayListTest {
-
     private SimpleList<Integer> list;
 
     @BeforeEach
@@ -99,7 +98,6 @@ class SimpleArrayListTest {
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
-
     @Test
     void whenAddNullThenMustBeSameBehavior() {
         list = new SimpleArrayList<>(3);
@@ -129,7 +127,6 @@ class SimpleArrayListTest {
         assertThatThrownBy(() -> list.set(2, 22))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
-
 
     @Test
     void whenGetIteratorFromEmptyListThenHasNextReturnFalse() {
