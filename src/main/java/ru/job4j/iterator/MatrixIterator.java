@@ -12,25 +12,13 @@ public class MatrixIterator implements Iterator<Integer> {
         this.data = data;
     }
 
-    private boolean isValidRowIndex(int index) {
-        return data.length > index;
-    }
-
-    private boolean isValidColumnIndex(int index) {
-        return data[row].length > index;
-    }
-
     @Override
     public boolean hasNext() {
-        while (!isValidColumnIndex(column)) {
-            if (!isValidColumnIndex(column + 1) && isValidRowIndex(row + 1)) {
-                row++;
-                column = 0;
-            } else {
-                break;
-            }
+        while (data.length > row && data[row].length <= column) {
+            row++;
+            column = 0;
         }
-        return isValidColumnIndex(column);
+        return data.length > row;
     }
 
     @Override
