@@ -13,7 +13,6 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
 
     @Override
     public void add(E value) {
-        modCount++;
         if (head == null) {
             head = new Node<>(value, null);
         } else {
@@ -23,6 +22,7 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
             }
             currElement.next = new Node<>(value, null);
         }
+        modCount++;
         size++;
     }
 

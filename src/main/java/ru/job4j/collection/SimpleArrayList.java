@@ -20,30 +20,26 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public void add(T value) {
-        modCount++;
         if (container.length == size) {
             grow();
         }
         container[size++] = value;
+        modCount++;
     }
 
     @Override
     public T set(int index, T newValue) {
-        Objects.checkIndex(index, size);
-
-        T prev = container[index];
+        T prev = get(index);
         container[index] = newValue;
         return prev;
     }
 
     @Override
     public T remove(int index) {
-        modCount++;
-        Objects.checkIndex(index, size);
-
-        T prev = container[index];
+        T prev = get(index);
         System.arraycopy(container, index + 1,
                 container, index, container.length - index - 1);
+        modCount++;
         size--;
         return prev;
     }
