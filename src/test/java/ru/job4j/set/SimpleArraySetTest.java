@@ -76,4 +76,24 @@ class SimpleArraySetTest {
         assertThatThrownBy(iterator::next)
                 .isInstanceOf(NoSuchElementException.class);
     }
+
+    @Test
+    void checkCorrectAddWhenRepeatingElements() {
+        SimpleSet<Integer> set = new SimpleArraySet<>();
+        assertThat(set.add(0)).isTrue();
+        assertThat(set.add(0)).isFalse();
+        assertThat(set.add(0)).isFalse();
+    }
+
+    @Test
+    void checkCorrectIteratorWhenRepeatingElements() {
+        SimpleSet<Integer> set = new SimpleArraySet<>();
+        set.add(0);
+        set.add(0);
+        set.add(0);
+        Iterator<Integer> iterator = set.iterator();
+        assertThat(iterator.hasNext()).isTrue();
+        assertThat(iterator.next()).isEqualTo(0);
+        assertThat(iterator.hasNext()).isFalse();
+    }
 }
