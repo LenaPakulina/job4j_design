@@ -11,8 +11,8 @@
  create table country(
      id serial primary key,
 	 name varchar(255),
-     president_id int references president(id),
-     capital_id int references capital(id)
+     president_id int references president(id) unique,
+     capital_id int references capital(id) unique
  );
  
  insert into president(name) values ('Putin');
