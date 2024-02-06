@@ -31,21 +31,21 @@ public class RoleStoreTest {
     }
 
     @Test
-    void whenReplaceThenUsernameIsMaxim() {
-        RoleStore store = new RoleStore();
-        store.add(new Role("1", "Mafia"));
-        store.replace("1", new Role("1", "Sheriff"));
-        Role result = store.findById("1");
-        assertThat(result.getRole()).isEqualTo("Sheriff");
-    }
-
-    @Test
     void whenNoReplaceUserThenNoChangeUsername() {
         RoleStore store = new RoleStore();
         store.add(new Role("1", "Mafia"));
         store.replace("10", new Role("10", "Sheriff"));
         Role result = store.findById("1");
         assertThat(result.getRole()).isEqualTo("Mafia");
+    }
+
+    @Test
+    void whenReplaceThenUsernameIsMaxim() {
+        RoleStore store = new RoleStore();
+        store.add(new Role("1", "Mafia"));
+        store.replace("1", new Role("1", "Sheriff"));
+        Role result = store.findById("1");
+        assertThat(result.getRole()).isEqualTo("Sheriff");
     }
 
     @Test
