@@ -27,11 +27,22 @@ referencing new table as inserted
 for each statement
 execute procedure tax();
 
-create trigger tax_before_trigger
-    before insert
-    on products
-    for each row
-    execute procedure tax();
+create
+or replace function tax_before()
+    returns trigger as
+$$
+    BEGIN
+        new.price = new.price * 1.13;
+        return new;
+    END;
+$$
+LANGUAGE 'plpgsql';
+
+create trigger tax_before
+before insert
+on products
+for each statement
+execute procedure tax_before();
 
 create table history_of_price
 (
