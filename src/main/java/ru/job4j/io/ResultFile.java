@@ -11,7 +11,7 @@ public class ResultFile {
                 stream.write(String.format("1 * %d = %d", i, i).getBytes());
                 stream.write(System.lineSeparator().getBytes());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
