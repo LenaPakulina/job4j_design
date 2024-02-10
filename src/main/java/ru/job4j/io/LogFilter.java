@@ -15,7 +15,7 @@ public class LogFilter {
 
     private boolean checkLine(String str) {
         String[] subStrs = str.split(" ");
-        return subStrs.length > 1 && subStrs[subStrs.length - 2].equals("404");
+        return subStrs.length > 1 && ("404".equals(subStrs[subStrs.length - 2]));
     }
 
     public List<String> filter() {
