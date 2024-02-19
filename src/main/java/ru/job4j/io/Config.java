@@ -23,11 +23,10 @@ public class Config {
             for (String line : reader.lines().toList()) {
                 int index = line.indexOf("=");
                 if (!line.startsWith("#") && !line.isEmpty()) {
-                    if (index > 0 && index != (line.length() - 1)) {
-                        values.put(line.substring(0, index), line.substring(index + 1));
-                    } else {
+                    if (index <= 0 || index == (line.length() - 1)) {
                         throw new IllegalArgumentException("Error");
                     }
+                    values.put(line.substring(0, index), line.substring(index + 1));
                 }
             }
         } catch (IOException e) {
