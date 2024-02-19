@@ -9,17 +9,16 @@ public class Analysis {
         try (BufferedReader reader = new BufferedReader(new FileReader(source));
              PrintWriter print = new PrintWriter(
                      new BufferedOutputStream(new FileOutputStream(target)))) {
-            List<String> lines = reader.lines().toList();
             String firstTime = null;
-            for (int i = 0; i < lines.size(); i++) {
-                String[] array = lines.get(i).split(" ");
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+                String[] array = line.split(" ");
                 if (array.length > 1) {
                     if (firstTime == null
                             && ("400".equals(array[0]) || "500".equals(array[0]))) {
                         firstTime = array[1];
                     } else if (firstTime != null
                             && ("200".equals(array[0]) || "300".equals(array[0]))) {
-                        print.println(firstTime + ";" + array[1] + ";");
+                        print.println(String.format("%s;%s;", firstTime, array[1]));
                         firstTime = null;
                     }
                 }
