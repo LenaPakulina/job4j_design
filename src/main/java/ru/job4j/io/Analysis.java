@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Analysis {
-    public void unavailable(String source, String target) {
+    public static void unavailable(String source, String target) {
         try (BufferedReader reader = new BufferedReader(new FileReader(source));
              PrintWriter print = new PrintWriter(
                      new BufferedOutputStream(new FileOutputStream(target)))) {
