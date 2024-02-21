@@ -10,22 +10,22 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
-        if (!checkArgs(args)) {
-            throw new IllegalArgumentException("There are no necessary parameters.");
-        }
+        checkArgs(args);
         Path start = Paths.get(args[0]);
         search(start, path -> path.toFile().getName().endsWith(args[1])).forEach(System.out::println);
     }
 
-    private static boolean checkArgs(String[] args) {
-        boolean answer = false;
-        if (args.length == 2) {
-            File dir = new File(args[0]);
-            if (dir.exists() && !args[1].isBlank()) {
-                answer = true;
-            }
+    private static void checkArgs(String[] args) {
+        if (args.length != 2) {
+            throw  new IllegalArgumentException("The number of arguments does not meet expectations");
         }
-        return answer;
+        File dir = new File(args[0]);
+        if (!dir.exists()) {
+            throw  new IllegalArgumentException("The file search path does not exist");
+        }
+        if (args[1].isBlank()) {
+            throw  new IllegalArgumentException("The extension of files is not specified");
+        }
     }
 
     public static List<Path> search(Path root, Predicate<Path> condition) throws IOException {
