@@ -21,19 +21,19 @@ public class ConsoleChat {
         answers = readPhrases();
     }
 
-    @SuppressWarnings("checkstyle:InnerAssignment")
     public void run() {
         Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
         boolean hasAnswer = true;
         while (scanner.hasNextLine()) {
-            logs.add(scanner.nextLine());
-            if (OUT.equals(logs.get(logs.size() - 1))) {
+            String lastMsg = scanner.nextLine();
+            logs.add(lastMsg);
+            if (OUT.equals(lastMsg)) {
                 saveLog(logs);
                 break;
-            } else if (STOP.equals(logs.get(logs.size() - 1))) {
+            } else if (STOP.equals(lastMsg)) {
                 hasAnswer = false;
-            } else if (CONTINUE.equals(logs.get(logs.size() - 1))) {
+            } else if (CONTINUE.equals(lastMsg)) {
                 hasAnswer = true;
             }
             if (hasAnswer) {
