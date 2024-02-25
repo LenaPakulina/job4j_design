@@ -25,24 +25,27 @@ public class ConsoleChat {
         Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
         boolean hasAnswer = true;
-        while (scanner.hasNextLine()) {
+        boolean hasFinally = false;
+        while (!hasFinally && scanner.hasNextLine()) {
             String lastMsg = scanner.nextLine();
             logs.add(lastMsg);
             if (OUT.equals(lastMsg)) {
                 saveLog(logs);
-                break;
-            } else if (STOP.equals(lastMsg)) {
-                hasAnswer = false;
-            } else if (CONTINUE.equals(lastMsg)) {
-                hasAnswer = true;
-            }
-            if (hasAnswer) {
-                String autoAnswer = answers.get(rand.nextInt(answers.size()));
-                System.out.println(autoAnswer);
-                logs.add(autoAnswer);
-            }
-            if (logs.size() > 5) {
-                saveLog(logs);
+                hasFinally = true;
+            } else {
+                if (STOP.equals(lastMsg)) {
+                    hasAnswer = false;
+                } else if (CONTINUE.equals(lastMsg)) {
+                    hasAnswer = true;
+                }
+                if (hasAnswer) {
+                    String autoAnswer = answers.get(rand.nextInt(answers.size()));
+                    System.out.println(autoAnswer);
+                    logs.add(autoAnswer);
+                }
+                if (logs.size() > 5) {
+                    saveLog(logs);
+                }
             }
         }
     }
