@@ -15,7 +15,7 @@ public class UsageSlf4j {
         LOG.error("error message");
     }
 
-    public static void main(String[] args) {
+    public static void func2(String[] args) {
         byte bytedata = 123;
         short shortData = 10000;
         int intData = -1;
@@ -26,5 +26,13 @@ public class UsageSlf4j {
         boolean booleanData = true;
         LOG.debug("Data: {} {} {} {} {} {} {} {}",
                 bytedata, shortData, intData, longData, floatData, doubleData, charData, booleanData);
+    }
+
+    public static void main(String[] args) {
+        try {
+            throw new Exception("Not supported code");
+        } catch (Exception e) {
+            LOG.error("Exception in log example", e);
+        }
     }
 }
