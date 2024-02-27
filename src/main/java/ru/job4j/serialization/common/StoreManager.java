@@ -1,4 +1,4 @@
-package ru.job4j.serialization;
+package ru.job4j.serialization.common;
 
 import java.io.Serializable;
 
