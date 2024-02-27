@@ -1,8 +1,5 @@
 package ru.job4j.serialization.xml;
 
-import ru.job4j.serialization.common.Store;
-import ru.job4j.serialization.common.StoreManager;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
