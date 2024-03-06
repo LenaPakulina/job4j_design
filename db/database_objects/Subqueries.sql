@@ -36,3 +36,6 @@ VALUES (1, 10, 2),
 
 SELECT * FROM customers
 WHERE customers.id IN (SELECT orders.customer_id FROM orders WHERE orders.amount = 0);
+
+SELECT * FROM customers
+WHERE customers.id NOT IN (SELECT orders.customer_id FROM orders);
