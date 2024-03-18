@@ -1,4 +1,4 @@
-package ru.job4j.kiss;
+package ru.job4j.ood;
 
 import java.util.Arrays;
 import java.util.List;

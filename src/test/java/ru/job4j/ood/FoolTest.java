@@ -1,7 +1,6 @@
-package ru.job4j.kiss;
+package ru.job4j.ood;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.iterator.ArrayIt;
 
 import static org.assertj.core.api.Assertions.*;
 
