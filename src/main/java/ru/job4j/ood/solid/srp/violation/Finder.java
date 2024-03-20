@@ -1,4 +1,4 @@
-package ru.job4j.ood.srp.violation;
+package ru.job4j.ood.solid.srp.violation;
 
 /*
 Класс содержит нарушение принципа SRP

@@ -1,10 +1,10 @@
-package ru.job4j.ood.srp.report;
+package ru.job4j.ood.solid.srp.report;
 
-import ru.job4j.ood.srp.currency.Currency;
-import ru.job4j.ood.srp.currency.CurrencyConverter;
-import ru.job4j.ood.srp.model.DateTimeParser;
-import ru.job4j.ood.srp.model.Employee;
-import ru.job4j.ood.srp.model.Store;
+import ru.job4j.ood.solid.srp.currency.Currency;
+import ru.job4j.ood.solid.srp.currency.CurrencyConverter;
+import ru.job4j.ood.solid.srp.model.DateTimeParser;
+import ru.job4j.ood.solid.srp.model.Employee;
+import ru.job4j.ood.solid.srp.model.Store;
 
 import java.util.Calendar;
 import java.util.function.Predicate;

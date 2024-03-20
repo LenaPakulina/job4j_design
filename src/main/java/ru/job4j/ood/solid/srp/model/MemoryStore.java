@@ -1,4 +1,4 @@
-package ru.job4j.ood.srp.model;
+package ru.job4j.ood.solid.srp.model;
 
 import java.util.ArrayList;
 import java.util.List;

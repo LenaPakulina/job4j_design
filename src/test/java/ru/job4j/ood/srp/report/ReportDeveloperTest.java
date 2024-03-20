@@ -1,12 +1,13 @@
 package ru.job4j.ood.srp.report;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.ood.srp.model.DateTimeParser;
-import ru.job4j.ood.srp.model.Employee;
-import ru.job4j.ood.srp.model.MemoryStore;
-import ru.job4j.ood.srp.model.ReportDateTimeParser;
+import ru.job4j.ood.solid.srp.model.DateTimeParser;
+import ru.job4j.ood.solid.srp.model.Employee;
+import ru.job4j.ood.solid.srp.model.MemoryStore;
+import ru.job4j.ood.solid.srp.model.ReportDateTimeParser;
+import ru.job4j.ood.solid.srp.report.Report;
+import ru.job4j.ood.solid.srp.report.ReportDeveloper;
 
-import java.io.PrintStream;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.*;
