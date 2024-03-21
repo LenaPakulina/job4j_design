@@ -19,17 +19,17 @@ public class ReportXml implements Report {
     @Override
     public String generate(Predicate<Employee> filter) {
         StringBuilder xml = new StringBuilder();
-        xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+        xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n");
         xml.append("<employees>\n");
         for (Employee employee : store.findBy(filter)) {
-            xml.append("\t<employee>\n")
-                    .append("\t\t<name>").append(employee.getName()).append("</name>\n")
-                    .append("\t\t<hired>").append(dateTimeParser.parse(employee.getHired())).append("</hired>\n")
-                    .append("\t\t<fired>").append(dateTimeParser.parse(employee.getFired())).append("</fired>\n")
-                    .append("\t\t<salary>").append(employee.getSalary()).append("</salary>\n")
-                    .append("\t</employee>\n");
+            xml.append("    <employee>\n")
+                    .append("        <fired>").append(dateTimeParser.parse(employee.getFired())).append("</fired>\n")
+                    .append("        <hired>").append(dateTimeParser.parse(employee.getHired())).append("</hired>\n")
+                    .append("        <name>").append(employee.getName()).append("</name>\n")
+                    .append("        <salary>").append(employee.getSalary()).append("</salary>\n")
+                    .append("    </employee>\n");
         }
-        xml.append("</employees>");
+        xml.append("</employees>\n");
         return xml.toString();
     }
 }
